@@ -1,0 +1,45 @@
+{
+  "name": "Address",
+  "fields": [
+    {
+      "fieldName": "line1",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "line2",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "city",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "usState",
+      "otherEntityRelationshipName": "address",
+      "relationshipValidateRules": "required",
+      "relationshipName": "state"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "zipCode",
+      "otherEntityRelationshipName": "address",
+      "relationshipValidateRules": "required",
+      "relationshipName": "zipCode"
+    }
+  ],
+  "entityTableName": "address",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": ["scheduler"],
+  "changelogDate": "20210430051914"
+}

@@ -1,0 +1,27 @@
+{
+  "schedulerApp": {
+    "interpreter": {
+      "home": {
+        "title": "Interpreters",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Interpreter",
+        "createOrEditLabel": "Create or edit a Interpreter",
+        "notFound": "No Interpreters found"
+      },
+      "created": "A new Interpreter is created with identifier {{ param }}",
+      "updated": "A Interpreter is updated with identifier {{ param }}",
+      "deleted": "A Interpreter is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Interpreter {{ id }}?"
+      },
+      "detail": {
+        "title": "Interpreter"
+      },
+      "id": "ID",
+      "firstName": "First Name",
+      "lastName": "Last Name",
+      "address": "Address",
+      "languages": "Languages"
+    }
+  }
+}

@@ -1,0 +1,48 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <div *ngIf="interpreter">
+      <h2 data-cy="interpreterDetailsHeading"><span jhiTranslate="schedulerApp.interpreter.detail.title">Interpreter</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ interpreter.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="schedulerApp.interpreter.firstName">First Name</span></dt>
+        <dd>
+          <span>{{ interpreter.firstName }}</span>
+        </dd>
+        <dt><span jhiTranslate="schedulerApp.interpreter.lastName">Last Name</span></dt>
+        <dd>
+          <span>{{ interpreter.lastName }}</span>
+        </dd>
+        <dt><span jhiTranslate="schedulerApp.interpreter.address">Address</span></dt>
+        <dd>
+          <div *ngIf="interpreter.address">
+            <a [routerLink]="['/address', interpreter.address?.id, 'view']">{{ interpreter.address?.id }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="schedulerApp.interpreter.languages">Languages</span></dt>
+        <dd>
+          <div *ngIf="interpreter.languages">
+            <a [routerLink]="['/language', interpreter.languages?.id, 'view']">{{ interpreter.languages?.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/interpreter', interpreter.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

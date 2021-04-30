@@ -1,0 +1,92 @@
+<div>
+  <h2 id="page-heading" data-cy="InterpreterHeading">
+    <span jhiTranslate="schedulerApp.interpreter.home.title">Interpreters</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info mr-2" (click)="loadAll()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="schedulerApp.interpreter.home.refreshListLabel">Refresh List</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-interpreter"
+        [routerLink]="['/interpreter/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="schedulerApp.interpreter.home.createLabel"> Create a new Interpreter </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="interpreters?.length === 0">
+    <span jhiTranslate="schedulerApp.interpreter.home.notFound">No interpreters found</span>
+  </div>
+
+  <div class="table-responsive" id="entities" *ngIf="interpreters && interpreters.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr>
+          <th scope="col"><span jhiTranslate="global.field.id">ID</span></th>
+          <th scope="col"><span jhiTranslate="schedulerApp.interpreter.firstName">First Name</span></th>
+          <th scope="col"><span jhiTranslate="schedulerApp.interpreter.lastName">Last Name</span></th>
+          <th scope="col"><span jhiTranslate="schedulerApp.interpreter.address">Address</span></th>
+          <th scope="col"><span jhiTranslate="schedulerApp.interpreter.languages">Languages</span></th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let interpreter of interpreters; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/interpreter', interpreter.id, 'view']">{{ interpreter.id }}</a>
+          </td>
+          <td>{{ interpreter.firstName }}</td>
+          <td>{{ interpreter.lastName }}</td>
+          <td>
+            <div *ngIf="interpreter.address">
+              <a [routerLink]="['/address', interpreter.address?.id, 'view']">{{ interpreter.address?.id }}</a>
+            </div>
+          </td>
+          <td>
+            <div *ngIf="interpreter.languages">
+              <a [routerLink]="['/language', interpreter.languages?.id, 'view']">{{ interpreter.languages?.id }}</a>
+            </div>
+          </td>
+          <td class="text-right">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/interpreter', interpreter.id, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/interpreter', interpreter.id, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(interpreter)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
