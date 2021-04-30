@@ -1,0 +1,55 @@
+
+application {
+  config {
+    baseName scheduler,
+    applicationType monolith,
+    packageName com.propio,
+    authenticationType jwt,
+    prodDatabaseType postgresql,
+    clientFramework angular
+  }
+  entities *
+}
+
+entity Organization {
+	name String
+}
+
+entity Interpreter {
+	firstName String
+    lastName String
+}
+
+entity Language {
+	name String
+}
+
+relationship ManyToMany {
+	Interpreter{languages required} to Language
+}
+
+entity Address {
+	line1 String required
+    line2 String
+    city String required
+}
+
+relationship OneToOne {
+	Organization{address required} to Address,
+    Interpreter{address required} to Address
+}
+
+entity UsState {
+	name String required
+    abbreviation String required pattern(/^[A-Z]{2}$/) unique
+}
+
+entity ZipCode {
+	value String required pattern(/^\d{5}$/)
+}
+
+relationship ManyToOne {
+	Address{state required} to UsState,
+    Address{zipCode required} to ZipCode
+}
+    
