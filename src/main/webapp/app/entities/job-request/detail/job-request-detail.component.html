@@ -1,0 +1,42 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <div *ngIf="jobRequest">
+      <h2 data-cy="jobRequestDetailsHeading"><span jhiTranslate="schedulerApp.jobRequest.detail.title">Job Request</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ jobRequest.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="schedulerApp.jobRequest.startTime">Start Time</span></dt>
+        <dd>
+          <span>{{ jobRequest.startTime | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="schedulerApp.jobRequest.endTime">End Time</span></dt>
+        <dd>
+          <span>{{ jobRequest.endTime | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="schedulerApp.jobRequest.location">Location</span></dt>
+        <dd>
+          <div *ngIf="jobRequest.location">
+            <a [routerLink]="['/location', jobRequest.location?.id, 'view']">{{ jobRequest.location?.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/job-request', jobRequest.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

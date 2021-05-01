@@ -1,0 +1,25 @@
+{
+  "schedulerApp": {
+    "usState": {
+      "home": {
+        "title": "Us States",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Us State",
+        "createOrEditLabel": "Create or edit a Us State",
+        "notFound": "No Us States found"
+      },
+      "created": "A new Us State is created with identifier {{ param }}",
+      "updated": "A Us State is updated with identifier {{ param }}",
+      "deleted": "A Us State is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Us State {{ id }}?"
+      },
+      "detail": {
+        "title": "Us State"
+      },
+      "id": "ID",
+      "name": "Name",
+      "abbreviation": "Abbreviation"
+    }
+  }
+}
