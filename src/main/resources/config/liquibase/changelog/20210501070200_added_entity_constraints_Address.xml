@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.3.xsd">
+    <!--
+        Added the constraints for entity Address.
+    -->
+    <changeSet id="20210501070200-2" author="jhipster">
+
+        <addForeignKeyConstraint baseColumnNames="state_id"
+                                 baseTableName="address"
+                                 constraintName="fk_address__state_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="us_state"/>
+
+        <addForeignKeyConstraint baseColumnNames="zip_code_id"
+                                 baseTableName="address"
+                                 constraintName="fk_address__zip_code_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="zip_code"/>
+    </changeSet>
+</databaseChangeLog>

@@ -1,0 +1,24 @@
+{
+  "schedulerApp": {
+    "zipCode": {
+      "home": {
+        "title": "Zip Codes",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Zip Code",
+        "createOrEditLabel": "Create or edit a Zip Code",
+        "notFound": "No Zip Codes found"
+      },
+      "created": "A new Zip Code is created with identifier {{ param }}",
+      "updated": "A Zip Code is updated with identifier {{ param }}",
+      "deleted": "A Zip Code is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Zip Code {{ id }}?"
+      },
+      "detail": {
+        "title": "Zip Code"
+      },
+      "id": "ID",
+      "value": "Value"
+    }
+  }
+}
