@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.3.xsd">
+    <!--
+        Added the constraints for entity JobRequest.
+    -->
+    <changeSet id="20210502060441-2" author="jhipster">
+
+        <addForeignKeyConstraint baseColumnNames="assigned_interpreter_id"
+                                 baseTableName="job_request"
+                                 constraintName="fk_job_request__assigned_interpreter_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="interpreter"/>
+
+        <addForeignKeyConstraint baseColumnNames="language_id"
+                                 baseTableName="job_request"
+                                 constraintName="fk_job_request__language_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="language"/>
+
+        <addForeignKeyConstraint baseColumnNames="location_id"
+                                 baseTableName="job_request"
+                                 constraintName="fk_job_request__location_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="location"/>
+    </changeSet>
+</databaseChangeLog>

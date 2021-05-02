@@ -1,0 +1,27 @@
+{
+  "name": "UsState",
+  "fields": [
+    {
+      "fieldName": "name",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "abbreviation",
+      "fieldType": "String",
+      "fieldValidateRules": ["required", "pattern", "unique"],
+      "fieldValidateRulesPattern": "^[A-Z]{2}$"
+    }
+  ],
+  "relationships": [],
+  "entityTableName": "us_state",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": ["scheduler"],
+  "changelogDate": "20210502060841"
+}

@@ -1,0 +1,54 @@
+{
+  "generator-jhipster": {
+    "authenticationType": "oauth2",
+    "cacheProvider": "ehcache",
+    "clientFramework": "angularX",
+    "serverPort": "8080",
+    "serviceDiscoveryType": false,
+    "skipUserManagement": true,
+    "withAdminUi": true,
+    "baseName": "scheduler",
+    "buildTool": "gradle",
+    "databaseType": "sql",
+    "devDatabaseType": "h2Disk",
+    "enableHibernateCache": true,
+    "enableSwaggerCodegen": false,
+    "enableTranslation": true,
+    "jhiPrefix": "jhi",
+    "languages": ["en"],
+    "messageBroker": false,
+    "prodDatabaseType": "postgresql",
+    "searchEngine": false,
+    "skipClient": false,
+    "testFrameworks": [],
+    "websocket": false,
+    "applicationType": "monolith",
+    "packageName": "com.propio",
+    "packageFolder": "com/propio",
+    "blueprints": [
+      {
+        "name": "generator-jhipster-dotnetcore"
+      }
+    ],
+    "jhipsterVersion": "7.0.1",
+    "skipServer": false,
+    "clientPackageManager": "npm",
+    "dtoSuffix": "DTO",
+    "entitySuffix": "",
+    "reactive": false,
+    "clientTheme": "none",
+    "clientThemeVariant": "",
+    "entities": ["Organization", "Interpreter", "JobRequest", "Language", "Location", "Address", "UsState", "ZipCode"],
+    "skipCheckLengthOfIdentifier": false,
+    "skipFakeData": false,
+    "otherModules": [
+      {
+        "name": "generator-jhipster-dotnetcore"
+      }
+    ],
+    "pages": [],
+    "nativeLanguage": "en",
+    "creationTimestamp": 1619935301700,
+    "lastLiquibaseTimestamp": 1619935781000
+  }
+}

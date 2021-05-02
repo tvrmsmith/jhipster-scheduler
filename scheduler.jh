@@ -1,0 +1,70 @@
+
+application {
+    config {
+        baseName scheduler
+        applicationType monolith
+        packageName com.propio
+        authenticationType oauth2
+        prodDatabaseType postgresql
+        clientFramework angular
+        buildTool gradle
+        blueprints [dotnetcore]
+    }
+    entities *
+}
+
+entity Organization {
+	name String
+}
+
+entity Interpreter {
+	firstName String
+    lastName String
+}
+
+entity JobRequest {
+	startTime Instant required
+    endTime Instant required
+}
+
+entity Language {
+	name String required
+}
+
+entity Location {
+	name String required
+}
+
+entity Address {
+	line1 String required
+    line2 String
+    city String required
+}
+
+entity UsState {
+	name String required
+    abbreviation String required pattern(/^[A-Z]{2}$/) unique
+}
+
+entity ZipCode {
+	value String required pattern(/^\d{5}$/)
+}
+
+relationship OneToOne {
+	Location{address required} to Address,
+    Interpreter{address required} to Address
+    JobRequest{assignedInterpreter} to Interpreter
+    JobRequest{language required} to Language
+}
+
+relationship OneToMany {
+	Organization{locations} to Location{organization required}
+	Interpreter{languages required} to Language
+}
+
+relationship ManyToOne {
+	Address{state required} to UsState,
+    Address{zipCode required} to ZipCode,
+    JobRequest{location required} to Location 
+}
+    
