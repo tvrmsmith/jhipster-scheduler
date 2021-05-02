@@ -1,0 +1,52 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <div *ngIf="address">
+      <h2 data-cy="addressDetailsHeading"><span jhiTranslate="schedulerApp.address.detail.title">Address</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ address.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="schedulerApp.address.line1">Line 1</span></dt>
+        <dd>
+          <span>{{ address.line1 }}</span>
+        </dd>
+        <dt><span jhiTranslate="schedulerApp.address.line2">Line 2</span></dt>
+        <dd>
+          <span>{{ address.line2 }}</span>
+        </dd>
+        <dt><span jhiTranslate="schedulerApp.address.city">City</span></dt>
+        <dd>
+          <span>{{ address.city }}</span>
+        </dd>
+        <dt><span jhiTranslate="schedulerApp.address.state">State</span></dt>
+        <dd>
+          <div *ngIf="address.state">
+            <a [routerLink]="['/us-state', address.state?.id, 'view']">{{ address.state?.id }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="schedulerApp.address.zipCode">Zip Code</span></dt>
+        <dd>
+          <div *ngIf="address.zipCode">
+            <a [routerLink]="['/zip-code', address.zipCode?.id, 'view']">{{ address.zipCode?.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/address', address.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,27 @@
+{
+  "name": "Organization",
+  "fields": [
+    {
+      "fieldName": "name",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "location",
+      "otherEntityRelationshipName": "organization",
+      "relationshipName": "locations"
+    }
+  ],
+  "entityTableName": "organization",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": ["scheduler"],
+  "changelogDate": "20210502060241"
+}

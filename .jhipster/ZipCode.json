@@ -1,0 +1,22 @@
+{
+  "name": "ZipCode",
+  "fields": [
+    {
+      "fieldName": "value",
+      "fieldType": "String",
+      "fieldValidateRules": ["required", "pattern"],
+      "fieldValidateRulesPattern": "^\\d{5}$"
+    }
+  ],
+  "relationships": [],
+  "entityTableName": "zip_code",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": ["scheduler"],
+  "changelogDate": "20210502060941"
+}

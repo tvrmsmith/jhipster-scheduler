@@ -1,0 +1,28 @@
+{
+  "name": "Language",
+  "fields": [
+    {
+      "fieldName": "name",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "interpreter",
+      "otherEntityRelationshipName": "languages",
+      "relationshipName": "interpreter"
+    }
+  ],
+  "entityTableName": "language",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": ["scheduler"],
+  "changelogDate": "20210502060541"
+}

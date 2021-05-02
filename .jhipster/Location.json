@@ -1,0 +1,37 @@
+{
+  "name": "Location",
+  "fields": [
+    {
+      "fieldName": "name",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "address",
+      "otherEntityRelationshipName": "location",
+      "relationshipValidateRules": "required",
+      "relationshipName": "address",
+      "ownerSide": true
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "organization",
+      "otherEntityRelationshipName": "locations",
+      "relationshipValidateRules": "required",
+      "relationshipName": "organization"
+    }
+  ],
+  "entityTableName": "location",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": ["scheduler"],
+  "changelogDate": "20210502060641"
+}
